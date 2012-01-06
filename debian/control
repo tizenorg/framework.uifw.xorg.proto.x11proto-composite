@@ -1,0 +1,22 @@
+Source: x11proto-composite
+Section: x11
+Priority: optional
+Maintainer: SooChan Lim <sc1.lim@samsung.com>, Sangjin Lee <lsj119@samsung.com>, Debian X Strike Force <debian-x@lists.debian.org>
+Uploaders: SooChan Lim <sc1.lim@samsung.com>, David Nusinow <dnusinow@debian.org>, Brice Goglin <bgoglin@debian.org>, YoungHoon Jung <yhoon.jung@samsung.com>
+Build-Depends: debhelper (>= 5.0.0),  automake,  xutils-dev (>= 1:7.3~1)
+Standards-Version: 3.8.3
+
+Package: x11proto-composite-dev
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, x11proto-core-dev, x11proto-fixes-dev
+Description: X11 Composite extension wire protocol
+ This package provides development headers describing the wire protocol
+ for the Composite extension, used to let arbitrary client programs control
+ drawing of the final image.
+ .
+ More information about X.Org can be found at:
+ <URL:http://www.X.org>
+ <URL:http://xorg.freedesktop.org>
+ <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
+ .
+ This package is built from the X.org compositeproto proto module.
