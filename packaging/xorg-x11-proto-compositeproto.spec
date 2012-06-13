@@ -3,7 +3,7 @@ Name:       xorg-x11-proto-compositeproto
 Summary:    X.Org X11 Protocol compositeproto
 Version:    0.4.2
 Release:    1
-Group:      Development/System
+Group:      Graphics/X Window System
 License:    MIT
 URL:        http://www.x.org
 Source0:    %{name}-%{version}.tar.gz
