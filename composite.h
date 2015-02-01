@@ -63,9 +63,13 @@
 #define X_CompositeNameWindowPixmap		6
 #define X_CompositeGetOverlayWindow             7
 #define X_CompositeReleaseOverlayWindow         8
+#ifdef _F_INPUT_REDIRECTION_
+#define X_CompositeSetCoordinateTransform 9
 
+#define CompositeNumberRequests	    (X_CompositeSetCoordinateTransform + 1)
+#else //_F_INPUT_REDIRECTION_
 #define CompositeNumberRequests	    (X_CompositeReleaseOverlayWindow + 1)
-
+#endif //_F_INPUT_REDIRECTION_
 #define CompositeNumberEvents			0
 
 #endif /* _COMPOSITE_H_ */

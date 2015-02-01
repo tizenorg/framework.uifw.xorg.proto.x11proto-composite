@@ -1,6 +1,6 @@
 Name:     xorg-x11-proto-composite
 Summary:  X.Org X11 Protocol compositeproto
-Version:  0.4.2
+Version:  0.4.3
 Release:  2
 Group:    Development/System
 License:  MIT
@@ -25,7 +25,11 @@ Description: %{summary}
 ./autogen.sh
 %reconfigure --disable-static \
              --libdir=%{_datadir} \
-             --without-xmlto
+             --without-xmlto \
+             CFLAGS="${CFLAGS} \
+                 -Wall -g \
+                 -D_F_INPUT_REDIRECTION_ \
+                 "
 
 # Call make instruction with smp support
 make %{?jobs:-j%jobs}
