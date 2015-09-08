@@ -52,7 +52,7 @@
 #define Region CARD32
 #define Pixmap CARD32
 
-/* 
+/*
  * requests and replies
  */
 typedef struct {
@@ -184,6 +184,36 @@ typedef struct {
 } xCompositeReleaseOverlayWindowReq;
 
 #define sz_xCompositeReleaseOverlayWindowReq sizeof(xCompositeReleaseOverlayWindowReq)
+
+#ifdef _F_INPUT_REDIRECTION_
+#define Fixed      INT32
+/*
+ * This can't use an array because 32-bit values may be in bitfields
+ */
+typedef struct {
+    Fixed      matrix11 B32;
+    Fixed      matrix12 B32;
+    Fixed      matrix13 B32;
+    Fixed      matrix21 B32;
+    Fixed      matrix22 B32;
+    Fixed      matrix23 B32;
+    Fixed      matrix31 B32;
+    Fixed      matrix32 B32;
+    Fixed      matrix33 B32;
+} xCompTransform;
+
+#define sz_xCompTransform 36
+
+typedef struct {
+    CARD8   reqType;
+    CARD8   compositeReqType;
+    CARD16  length;
+    Window  window B32;
+    xCompTransform transform;
+} xCompositeSetCoordinateTransformReq;
+
+#define sz_xCompositeSetCoordinateTransformReq    44
+#endif //_F_INPUT_REDIRECTION_
 
 #undef Window
 #undef Region
